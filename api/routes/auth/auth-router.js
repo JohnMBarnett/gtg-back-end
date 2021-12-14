@@ -12,7 +12,7 @@ const Users = require("../users/user-model");
 router.post("/register", validateBody, checkUserFree, (req, res) => {
   let user = req.body;
 
-  const rounds = BCRYPT_ROUNDS;
+  const rounds = 3;
   const hash = bcrypt.hashSync(user.password, rounds);
 
   user.password = hash;

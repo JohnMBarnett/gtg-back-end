@@ -20,12 +20,19 @@ const getUserEvents = async (id) => {
 };
 
 const createEvent = async (newEvent) => {
-  const [id] = await db("events").insert(newEvent);
-  return db("events").where("event_id", id).first();
+  const [newObj] = await db("events").insert(newEvent, [
+    "event_name",
+    "event_description",
+    "event_location",
+    "event_date",
+    "event_time",
+    "creator_id",
+  ]);
+  return newObj;
 };
 
 module.exports = {
   getEvents,
   createEvent,
-  getUserEvents
+  getUserEvents,
 };

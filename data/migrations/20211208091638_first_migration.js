@@ -11,7 +11,7 @@ exports.up = function (knex) {
       table.string("event_name").notNullable();
       table.string("event_description").notNullable();
       table.string("event_location").notNullable();
-      table.time("event_date").notNullable();
+      table.string("event_date").notNullable();
       table.string("event_time").notNullable();
       table
         .integer("creator_id")

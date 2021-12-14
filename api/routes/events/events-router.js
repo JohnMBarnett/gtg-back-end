@@ -24,7 +24,7 @@ router.get("/:id", (req, res, next) => {
 router.post("/", (req, res, next) => {
   Events.createEvent(req.body)
     .then((newEvent) => {
-      res.status(200).json(newEvent);
+      res.status(201).json(newEvent);
     })
     .catch((err) => {
       next({ status: 500, message: err });

@@ -6,8 +6,11 @@ const getAllUsers = () => {
 };
 
 const add = async (newUser) => {
-  const [id] = await db("users").insert(newUser);
-  return db("users").where("user_id", id).first();
+  const [newObj] = await db("users").insert(newUser,[
+    "user_id",
+    "username"
+  ]);
+  return newObj;
 };
 
 const getBy = async (filter) => {
